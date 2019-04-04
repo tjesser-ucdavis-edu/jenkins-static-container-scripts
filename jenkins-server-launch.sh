@@ -35,6 +35,8 @@ docker run \
   -v "${JENKINS_SERVER_VOLUME}:/var/jenkins_home" \
   'jenkins/jenkins:lts'
 
+set +x
+
 while ! cat "/var/lib/docker/volumes/${JENKINS_SERVER_VOLUME}/_data/secrets/initialAdminPassword" 2>/dev/null
 do
   sleep 2s
