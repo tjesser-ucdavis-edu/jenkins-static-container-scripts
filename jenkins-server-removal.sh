@@ -7,6 +7,8 @@ set -x
 
 
 a2dissite "${JENKINS_SERVER_CONFFILE}"
+a2dissite "$(basename ${JENKINS_SERVER_CONFFILE} .conf)-le-ssl.conf"
+systemctl reload apache2
 
 rm "/etc/apache2/sites-available/${JENKINS_SERVER_CONFFILE}"
 rm "/etc/apache2/sites-available/$(basename ${JENKINS_SERVER_CONFFILE} .conf)-le-ssl.conf"
