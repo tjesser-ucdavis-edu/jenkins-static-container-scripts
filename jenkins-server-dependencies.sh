@@ -30,6 +30,7 @@ systemctl enable docker
 
 a2enmod proxy
 a2enmod proxy_http
+a2enmod proxy_wstunnel
 
 a2dissite 000-default.conf
 
