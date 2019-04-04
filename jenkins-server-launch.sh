@@ -9,8 +9,14 @@ set -x
 
 JENKINS_SERVER_CONF="<VirtualHost *:80>
   ServerName \"${JENKINS_SERVER_URL}\"
+
   ProxyPass \"/\" \"http://localhost:8080/\" nocanon
   ProxyPassReverse \"/\" \"http://localhost:8080/\"
+
+  AllowEncodedSlashes NoDecode
+
+  RequestHeader set X-Forwarded-Proto \"http\"
+  RequestHeader set X-Forwarded-Port \"80\"
 </VirtualHost>"
 
 echo "${JENKINS_SERVER_CONF}" >"/etc/apache2/sites-available/${JENKINS_SERVER_CONFFILE}"
