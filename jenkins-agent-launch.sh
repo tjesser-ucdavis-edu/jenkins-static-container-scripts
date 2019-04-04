@@ -1,6 +1,6 @@
 #! /usr/bin/env sh
 
-. ./jenkins.env
+. ./jenkins-agent.env
 
 set -e
 set -u

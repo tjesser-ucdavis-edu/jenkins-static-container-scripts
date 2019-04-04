@@ -1,6 +1,6 @@
 #! /usr/bin/env sh
 
-. ./jenkins.env
+. ./jenkins-server.env
 
 set -u
 set -v
