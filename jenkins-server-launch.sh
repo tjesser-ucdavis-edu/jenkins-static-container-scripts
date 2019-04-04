@@ -34,6 +34,14 @@ certbot \
     --redirect \
     --domain "${JENKINS_SERVER_URL}"
 
+sed \
+  -e 's/X-Forwarded-Proto "http"/X-Forwarded-Proto "https"/' \
+  -e 's/X-Forwarded-Port "80"/X-Forwarded-Port "443"/' \
+  --in-place \
+  "/etc/apache2/sites-available/$(basename ${JENKINS_SERVER_CONFFILE} .conf)-le-ssl.conf"
+
+systemctl reload apache2
+
 docker run \
   --detach \
   --name='jenkins-server-docker' \
