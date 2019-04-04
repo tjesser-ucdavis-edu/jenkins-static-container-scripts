@@ -24,8 +24,7 @@ certbot \
   run \
     --apache \
     --non-interactive \
-    --domain "${JENKINS_SERVER_URL}" \
-    --test-cert
+    --domain "${JENKINS_SERVER_URL}"
 
 docker run \
   --detach \
