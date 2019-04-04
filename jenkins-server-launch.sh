@@ -23,7 +23,9 @@ certbot \
   --email "admins@cse.ucdavis.edu" \
   run \
     --apache \
+    --hsts \
     --non-interactive \
+    --redirect \
     --domain "${JENKINS_SERVER_URL}"
 
 docker run \
