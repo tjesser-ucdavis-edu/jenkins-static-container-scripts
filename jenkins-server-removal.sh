@@ -2,7 +2,6 @@
 
 . ./jenkins.env
 
-set -e
 set -v
 set -x
 
