@@ -8,11 +8,11 @@ set -x
 
 
 a2dissite "${JENKINS_SERVER_CONFFILE}"
-a2dissite "$(basename ${JENKINS_SERVER_CONFFILE} .conf)-le-ssl.conf"
+a2dissite "${JENKINS_SERVER_LE_CONFFILE}"
 systemctl reload apache2
 
 rm "/etc/apache2/sites-available/${JENKINS_SERVER_CONFFILE}"
-rm "/etc/apache2/sites-available/$(basename ${JENKINS_SERVER_CONFFILE} .conf)-le-ssl.conf"
+rm "/etc/apache2/sites-available/${JENKINS_SERVER_LE_CONFFILE}"
 
 certbot delete \
   --cert-name "${JENKINS_SERVER_URL}"
