@@ -10,9 +10,11 @@ set -x
 
 docker run \
   --detach \
+  --group-add="$(getent group docker | awk -F ':' '{print $3}')" \
   --name="${JENKINS_AGENT_NAME}" \
   --restart='unless-stopped' \
-  'jenkins/jnlp-slave:latest' \
+  --volume='/var/run/docker.sock:/var/run/docker.sock' \
+  'jenkins/jnlp-agent-docker:latest' \
     -url "https://${JENKINS_SERVER_URL}" \
     "${JENKINS_AGENT_SECRET}" \
     "$(hostname)"
