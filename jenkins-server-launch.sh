@@ -36,8 +36,8 @@ certbot \
     --domain "${JENKINS_SERVER_URL}"
 
 sed \
-  -e 's/X-Forwarded-Proto "http"/X-Forwarded-Proto "https"/' \
-  -e 's/X-Forwarded-Port "80"/X-Forwarded-Port "443"/' \
+  --expression='s/X-Forwarded-Proto "http"/X-Forwarded-Proto "https"/' \
+  --expression='s/X-Forwarded-Port "80"/X-Forwarded-Port "443"/' \
   --in-place \
   "/etc/apache2/sites-available/${JENKINS_SERVER_LE_CONFFILE}"
 
@@ -47,9 +47,9 @@ docker run \
   --detach \
   --name='jenkins-server-docker' \
   --restart='unless-stopped' \
-  -p 8080:8080 \
-  -p 50000:50000 \
-  -v "${JENKINS_SERVER_VOLUME}:/var/jenkins_home" \
+  --publish='8080:8080' \
+  --publish='50000:50000' \
+  --volume="${JENKINS_SERVER_VOLUME}:/var/jenkins_home" \
   'jenkins/jenkins:lts'
 
 set +x
