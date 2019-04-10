@@ -48,6 +48,7 @@ set +u
 if [ -n "${JENKINS_SERVER_PLUGINS}" ]
 then
   docker run \
+    --rm \
     --volume="${JENKINS_SERVER_VOLUME}:/var/jenkins_home" \
     'jenkins/jenkins:lts' \
     '/usr/local/bin/install-plugins.sh' \
