@@ -43,6 +43,19 @@ sed \
 
 systemctl reload apache2
 
+set +u
+
+if [ -n "${JENKINS_SERVER_PLUGINS}" ]
+then
+  docker run \
+    --volume="${JENKINS_SERVER_VOLUME}:/var/jenkins_home" \
+    'jenkins/jenkins:lts' \
+    '/usr/local/bin/install-plugins.sh' \
+      ${JENKINS_SERVER_PLUGINS}
+fi
+
+set -u
+
 docker run \
   --detach \
   --name='jenkins-server-docker' \
