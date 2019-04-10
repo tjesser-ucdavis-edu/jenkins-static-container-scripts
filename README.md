@@ -1,4 +1,4 @@
-These scripts are written for and tested on Ubuntu Server 18.04. Currently, the scripts do *NOT* use sudo for privileged commands, instead assuming root.
+These scripts are written for and tested on Ubuntu Server 18.04. Currently, the scripts do **NOT** use sudo for privileged commands, instead assuming root.
 
 ## How To Use
 
