@@ -29,6 +29,7 @@ apt install --yes \
 systemctl enable apache2
 systemctl enable docker
 
+a2enmod headers
 a2enmod proxy
 a2enmod proxy_http
 a2enmod proxy_wstunnel
