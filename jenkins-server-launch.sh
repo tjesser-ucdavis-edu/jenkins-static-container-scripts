@@ -50,7 +50,7 @@ then
   docker run \
     --rm \
     --volume="${JENKINS_SERVER_VOLUME}:/var/jenkins_home" \
-    'jenkins/jenkins:lts' \
+    'jenkins/jenkins:latest' \
     '/usr/local/bin/install-plugins.sh' \
       ${JENKINS_SERVER_PLUGINS}
 fi
@@ -64,7 +64,7 @@ docker run \
   --publish='8080:8080' \
   --publish='50000:50000' \
   --volume="${JENKINS_SERVER_VOLUME}:/var/jenkins_home" \
-  'jenkins/jenkins:lts'
+  'jenkins/jenkins:latest'
 
 set +x
 
