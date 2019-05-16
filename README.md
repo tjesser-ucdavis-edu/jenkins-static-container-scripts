@@ -1,5 +1,7 @@
 These scripts are written for and tested on Ubuntu Server 18.04. Currently, the scripts do **NOT** use sudo for privileged commands, instead assuming root.
 
+The server is set up behind Apache and obtains an SSL cert from Let's Encrypt, using CertBot.
+
 ## How To Use
 
 The `*dependencies.sh` scripts are run once for whichever container you want, server or agent.
